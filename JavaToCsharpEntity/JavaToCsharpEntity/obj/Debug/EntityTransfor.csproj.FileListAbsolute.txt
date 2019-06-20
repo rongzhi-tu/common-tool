@@ -1,0 +1,14 @@
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\bin\Debug\JavaToCsharpEntity.exe.config
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\bin\Debug\JavaToCsharpEntity.exe
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\bin\Debug\JavaToCsharpEntity.pdb
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\obj\Debug\EntityTransfor.csprojResolveAssemblyReference.cache
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\obj\Debug\JavaToCsharpEntity.FMain.resources
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\obj\Debug\JavaToCsharpEntity.Properties.Resources.resources
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\obj\Debug\EntityTransfor.csproj.GenerateResource.Cache
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\obj\Debug\JavaToCsharpEntity.exe
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\obj\Debug\JavaToCsharpEntity.pdb
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\bin\Debug\JavaToCsharpEntity.exe.manifest
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\bin\Debug\JavaToCsharpEntity.application
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\obj\Debug\JavaToCsharpEntity.TrustInfo.xml
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\obj\Debug\JavaToCsharpEntity.exe.manifest
+D:\works\JavaToCsharpEntity\JavaToCsharpEntity\obj\Debug\JavaToCsharpEntity.application
