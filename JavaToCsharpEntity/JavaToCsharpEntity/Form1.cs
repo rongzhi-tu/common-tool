@@ -361,7 +361,7 @@ namespace JavaToCsharpEntity
             //    return valueDatetime;
             //}
             //result = Regex.Replace(result, @"(/\*[\s\S]*?\*/[\r\n|\n])", "");//去多行注释
-            result = Regex.Replace(result, @"/\*[^/]*?\*/[\s\r\n]+public [a-zA-Z<>]+ (set|get).+\(.*\).*\{[^\}]*\}", "");//去掉有多行注释的get set方法
+            result = Regex.Replace(result, @"/\*[^/]*?\*/[\s\r\n]+public [a-zA-Z]+ (set|get).+\(.*\).*\{[^\}]*\}", "");//去掉有多行注释的get set方法
             result = Regex.Replace(result, @"//[\s\r\n]+public [a-zA-Z<>]+ (set|get).+\(.*\).*\{[^\}]*\}", ""); ;//去掉有单行注释的get set方法
             result = Regex.Replace(result, @"public [a-zA-Z<>]+ (set|get).+\(.*\).*\{[^\}]*\}", ""); ;//去掉仅有get set方法
             result = Regex.Replace(result, @"(\r\n\r\n    \r\n\r\n)*", "");//去掉多余的回车符
@@ -390,11 +390,21 @@ namespace JavaToCsharpEntity
 
             //get set  注释处理
             string partten = @"(\s*)private "+ typeMode.CSharpName + " ([a-zA-Z0-9]+)";
+            //if (typeMode.CSharpName.EndsWith("?") && typeMode.CSharpName.Length > 1)
+            //{
+            //    int index = typeMode.CSharpName.LastIndexOf("?");
+            //    partten = @"(\s*)private " + typeMode.CSharpName.Substring(0, index) + "\\" + typeMode.CSharpName.Substring(index) + " ([a-zA-Z0-9 ]+)";
+            //}
             Regex r1 = new Regex(partten);
             MatchCollection matchCollection = r1.Matches(result);
             foreach (Match m in matchCollection)
             {
                 var matchValue = m.Value;//private Int32 gnameId
+                if (matchValue.Contains("?") && matchValue.Length > 1)
+                {
+                    int index = matchValue.LastIndexOf("?");
+                    matchValue = matchValue.Substring(0, index) + "\\" + matchValue.Substring(index);
+                }
                 var spaceKey = m.Result("$1");
                 var javaFieldName = m.Result("$2");
                 var cSharpFieldName = javaFieldName.Substring(0, 1);
