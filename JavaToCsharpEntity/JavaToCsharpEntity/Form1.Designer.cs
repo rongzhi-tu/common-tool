@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.chxAutoTransfor = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -70,8 +72,7 @@
             this.txtSrcPath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lstContent = new System.Windows.Forms.ListBox();
-            this.chxAutoTransfor = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.btnSelectCopy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -90,6 +91,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.chxAutoTransfor);
             this.splitContainer1.Panel1.Controls.Add(this.label13);
             this.splitContainer1.Panel1.Controls.Add(this.button4);
+            this.splitContainer1.Panel1.Controls.Add(this.btnSelectCopy);
             this.splitContainer1.Panel1.Controls.Add(this.btnCopy);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.btnSave);
@@ -137,6 +139,24 @@
             this.splitContainer1.SplitterDistance = 410;
             this.splitContainer1.TabIndex = 0;
             // 
+            // chxAutoTransfor
+            // 
+            this.chxAutoTransfor.AutoSize = true;
+            this.chxAutoTransfor.Location = new System.Drawing.Point(261, 397);
+            this.chxAutoTransfor.Name = "chxAutoTransfor";
+            this.chxAutoTransfor.Size = new System.Drawing.Size(15, 14);
+            this.chxAutoTransfor.TabIndex = 34;
+            this.chxAutoTransfor.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(148, 398);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(113, 12);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "加载时就自动转换：";
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(431, 394);
@@ -149,11 +169,11 @@
             // 
             // btnCopy
             // 
-            this.btnCopy.Location = new System.Drawing.Point(150, 86);
+            this.btnCopy.Location = new System.Drawing.Point(122, 86);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(105, 50);
+            this.btnCopy.Size = new System.Drawing.Size(75, 50);
             this.btnCopy.TabIndex = 31;
-            this.btnCopy.Text = "复制";
+            this.btnCopy.Text = "复制全部";
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click_1);
             // 
@@ -171,7 +191,7 @@
             // 
             this.btnSave.Location = new System.Drawing.Point(14, 86);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(99, 50);
+            this.btnSave.Size = new System.Drawing.Size(81, 50);
             this.btnSave.TabIndex = 31;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -179,9 +199,9 @@
             // 
             // btnTransfor
             // 
-            this.btnTransfor.Location = new System.Drawing.Point(297, 86);
+            this.btnTransfor.Location = new System.Drawing.Point(333, 86);
             this.btnTransfor.Name = "btnTransfor";
-            this.btnTransfor.Size = new System.Drawing.Size(106, 50);
+            this.btnTransfor.Size = new System.Drawing.Size(74, 50);
             this.btnTransfor.TabIndex = 31;
             this.btnTransfor.Text = "转换>>>";
             this.btnTransfor.UseVisualStyleBackColor = true;
@@ -501,23 +521,15 @@
             this.lstContent.Size = new System.Drawing.Size(357, 428);
             this.lstContent.TabIndex = 0;
             // 
-            // chxAutoTransfor
+            // btnSelectCopy
             // 
-            this.chxAutoTransfor.AutoSize = true;
-            this.chxAutoTransfor.Location = new System.Drawing.Point(261, 397);
-            this.chxAutoTransfor.Name = "chxAutoTransfor";
-            this.chxAutoTransfor.Size = new System.Drawing.Size(15, 14);
-            this.chxAutoTransfor.TabIndex = 34;
-            this.chxAutoTransfor.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(148, 398);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(113, 12);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "加载时就自动转换：";
+            this.btnSelectCopy.Location = new System.Drawing.Point(233, 86);
+            this.btnSelectCopy.Name = "btnSelectCopy";
+            this.btnSelectCopy.Size = new System.Drawing.Size(75, 50);
+            this.btnSelectCopy.TabIndex = 31;
+            this.btnSelectCopy.Text = "复制选中";
+            this.btnSelectCopy.UseVisualStyleBackColor = true;
+            this.btnSelectCopy.Click += new System.EventHandler(this.btnSelectCopy_Click);
             // 
             // FMain
             // 
@@ -583,6 +595,7 @@
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.CheckBox chxAutoTransfor;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnSelectCopy;
     }
 }
 

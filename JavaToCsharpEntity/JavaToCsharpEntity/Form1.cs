@@ -445,6 +445,22 @@ namespace JavaToCsharpEntity
             }
             MessageBox.Show("复制成功！");
         }
+
+        private void btnSelectCopy_Click(object sender, EventArgs e)
+        {
+            string contents = "";
+            var selectItems = lstContent.SelectedItems;
+            if (selectItems !=null && selectItems.Count > 0)
+	        {
+		          foreach (var item in selectItems)
+                    {
+                        contents += (item.ToString() + "\r\n") ;
+                    }
+                  Clipboard.SetDataObject(contents);
+                    MessageBox.Show("复制完成");
+	        }
+            MessageBox.Show("未选中任何数据");
+        }
         
     }
 }
