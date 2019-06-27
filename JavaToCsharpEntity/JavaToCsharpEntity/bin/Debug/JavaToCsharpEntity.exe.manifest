@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JavaToCsharpEntity.exe" size="30720">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JavaToCsharpEntity.exe" size="32768">
       <assemblyIdentity name="JavaToCsharpEntity" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jRQ5rRBk3qKjlpx86XgUw5KxLmNqx+2FgwPiOG9wTlY=</dsig:DigestValue>
+        <dsig:DigestValue>o5Xj5sIRaHUuWG+DybykirtNCjuqTfDwpr3CJFADzJs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

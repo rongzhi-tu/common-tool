@@ -148,6 +148,8 @@ namespace JavaToCsharpEntity
             mode.StrPropNote = txtPropertyNote.Text;
             mode.isFirstUpper = chxFirstUpper.Checked;
             mode.isAutoTransfor = chxAutoTransfor.Checked;
+            mode.isDelClassNote = chxDelClass.Checked;
+            mode.isDelPropNote = chxDelProp.Checked;
 
             mode.TypeModes = new List<TypeMode>();
 
@@ -243,6 +245,8 @@ namespace JavaToCsharpEntity
                 txtPropertyNote.Text = mode.StrPropNote;
                 chxFirstUpper.Checked = mode.isFirstUpper;
                 chxAutoTransfor.Checked = mode.isAutoTransfor;
+                chxDelClass.Checked = mode.isDelClassNote;
+                chxDelProp.Checked = mode.isDelPropNote;
                 #region
                 foreach (var item in mode.TypeModes)
                 {
@@ -361,7 +365,7 @@ namespace JavaToCsharpEntity
             //    return valueDatetime;
             //}
             //result = Regex.Replace(result, @"(/\*[\s\S]*?\*/[\r\n|\n])", "");//去多行注释
-            result = Regex.Replace(result, @"/\*[^/]*?\*/[\s\r\n]+public [a-zA-Z]+ (set|get).+\(.*\).*\{[^\}]*\}", "");//去掉有多行注释的get set方法
+            result = Regex.Replace(result, @"/\*[^/]*?\*/[\s\r\n]+public [a-zA-Z<>]+ (set|get).+\(.*\).*\{[^\}]*\}", "");//去掉有多行注释的get set方法
             result = Regex.Replace(result, @"//[\s\r\n]+public [a-zA-Z<>]+ (set|get).+\(.*\).*\{[^\}]*\}", ""); ;//去掉有单行注释的get set方法
             result = Regex.Replace(result, @"public [a-zA-Z<>]+ (set|get).+\(.*\).*\{[^\}]*\}", ""); ;//去掉仅有get set方法
             result = Regex.Replace(result, @"(\r\n\r\n    \r\n\r\n)*", "");//去掉多余的回车符
@@ -374,6 +378,32 @@ namespace JavaToCsharpEntity
             foreach (var item in mode.TypeModes)
             {
                 result = handleGetSetAndNoted(result,item,mode);
+            }
+            //去掉类注释 单行或多行
+            if (mode.isDelClassNote)
+            {
+                result = Regex.Replace(result, @"/\*[^/]*?\*/[\s\r\n]+public partial class", "public partial class");//多行注释处理
+                result = Regex.Replace(result, @"//[^p]+public partial class", "public partial class");//多行注释处理
+            }
+            //去掉属性注释 单行或多行
+            if (mode.isDelPropNote)
+            {
+                string pattern = "";//多行注释
+                string patternSimp = "";//单行注释
+                string rvalue = "";
+                if (string.IsNullOrEmpty(mode.StrPropNote))
+                {
+                    pattern = @"/\*[^/]*?\*/[\s\r\n]+public";
+                    patternSimp = @"//[^p]+public";
+                    rvalue = "public";
+                }
+                else {
+                    rvalue = mode.StrPropNote.Substring(0, 1);
+                    pattern = @"/\*[^/]*?\*/[\s\r\n]+\" + rvalue;
+                    patternSimp = @"//[^p]+\" + rvalue;
+                }
+                result = Regex.Replace(result, pattern, rvalue);
+                result = Regex.Replace(result, patternSimp, rvalue);
             }
             return result + "\r\n}";
         }
@@ -390,11 +420,11 @@ namespace JavaToCsharpEntity
 
             //get set  注释处理
             string partten = @"(\s*)private "+ typeMode.CSharpName + " ([a-zA-Z0-9]+)";
-            //if (typeMode.CSharpName.EndsWith("?") && typeMode.CSharpName.Length > 1)
-            //{
-            //    int index = typeMode.CSharpName.LastIndexOf("?");
-            //    partten = @"(\s*)private " + typeMode.CSharpName.Substring(0, index) + "\\" + typeMode.CSharpName.Substring(index) + " ([a-zA-Z0-9 ]+)";
-            //}
+            if (typeMode.CSharpName.EndsWith("?") && typeMode.CSharpName.Length > 1)
+            {
+                int index = typeMode.CSharpName.LastIndexOf("?");
+                partten = @"(\s*)private " + typeMode.CSharpName.Substring(0, index) + "\\" + typeMode.CSharpName.Substring(index) + " ([a-zA-Z0-9]+)";
+            }
             Regex r1 = new Regex(partten);
             MatchCollection matchCollection = r1.Matches(result);
             foreach (Match m in matchCollection)
@@ -458,6 +488,7 @@ namespace JavaToCsharpEntity
                     }
                   Clipboard.SetDataObject(contents);
                     MessageBox.Show("复制完成");
+                    return;
 	        }
             MessageBox.Show("未选中任何数据");
         }

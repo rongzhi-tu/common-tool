@@ -38,6 +38,16 @@ namespace JavaToCsharpEntity
         /// 是否加载文件时就自动转换
         /// </summary>
         public bool isAutoTransfor { get; set; }
+
+        /// <summary>
+        /// 是否在转换时去掉类注释
+        /// </summary>
+        public bool isDelClassNote { get; set; }
+
+        /// <summary>
+        /// 是否在转换时去掉属性注释
+        /// </summary>
+        public bool isDelPropNote { get; set; }
       
     }
 

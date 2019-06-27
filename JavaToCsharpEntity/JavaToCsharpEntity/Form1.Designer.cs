@@ -32,6 +32,7 @@
             this.chxAutoTransfor = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.btnSelectCopy = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -72,7 +73,10 @@
             this.txtSrcPath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lstContent = new System.Windows.Forms.ListBox();
-            this.btnSelectCopy = new System.Windows.Forms.Button();
+            this.chxDelProp = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.chxDelClass = new System.Windows.Forms.CheckBox();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -88,6 +92,10 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.chxDelProp);
+            this.splitContainer1.Panel1.Controls.Add(this.label17);
+            this.splitContainer1.Panel1.Controls.Add(this.chxDelClass);
+            this.splitContainer1.Panel1.Controls.Add(this.label18);
             this.splitContainer1.Panel1.Controls.Add(this.chxAutoTransfor);
             this.splitContainer1.Panel1.Controls.Add(this.label13);
             this.splitContainer1.Panel1.Controls.Add(this.button4);
@@ -135,8 +143,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lstContent);
-            this.splitContainer1.Size = new System.Drawing.Size(771, 428);
-            this.splitContainer1.SplitterDistance = 410;
+            this.splitContainer1.Size = new System.Drawing.Size(790, 457);
+            this.splitContainer1.SplitterDistance = 420;
             this.splitContainer1.TabIndex = 0;
             // 
             // chxAutoTransfor
@@ -167,6 +175,16 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button2_Click);
             // 
+            // btnSelectCopy
+            // 
+            this.btnSelectCopy.Location = new System.Drawing.Point(233, 86);
+            this.btnSelectCopy.Name = "btnSelectCopy";
+            this.btnSelectCopy.Size = new System.Drawing.Size(75, 50);
+            this.btnSelectCopy.TabIndex = 31;
+            this.btnSelectCopy.Text = "复制选中";
+            this.btnSelectCopy.UseVisualStyleBackColor = true;
+            this.btnSelectCopy.Click += new System.EventHandler(this.btnSelectCopy_Click);
+            // 
             // btnCopy
             // 
             this.btnCopy.Location = new System.Drawing.Point(122, 86);
@@ -181,7 +199,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(295, 394);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 27);
+            this.button2.Size = new System.Drawing.Size(86, 43);
             this.button2.TabIndex = 32;
             this.button2.Text = "保存配置";
             this.button2.UseVisualStyleBackColor = true;
@@ -518,24 +536,52 @@
             this.lstContent.Location = new System.Drawing.Point(0, 0);
             this.lstContent.Name = "lstContent";
             this.lstContent.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstContent.Size = new System.Drawing.Size(357, 428);
+            this.lstContent.Size = new System.Drawing.Size(366, 457);
             this.lstContent.TabIndex = 0;
             // 
-            // btnSelectCopy
+            // chxDelProp
             // 
-            this.btnSelectCopy.Location = new System.Drawing.Point(233, 86);
-            this.btnSelectCopy.Name = "btnSelectCopy";
-            this.btnSelectCopy.Size = new System.Drawing.Size(75, 50);
-            this.btnSelectCopy.TabIndex = 31;
-            this.btnSelectCopy.Text = "复制选中";
-            this.btnSelectCopy.UseVisualStyleBackColor = true;
-            this.btnSelectCopy.Click += new System.EventHandler(this.btnSelectCopy_Click);
+            this.chxDelProp.AutoSize = true;
+            this.chxDelProp.Location = new System.Drawing.Point(261, 423);
+            this.chxDelProp.Name = "chxDelProp";
+            this.chxDelProp.Size = new System.Drawing.Size(15, 14);
+            this.chxDelProp.TabIndex = 38;
+            this.chxDelProp.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(148, 424);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(89, 12);
+            this.label17.TabIndex = 37;
+            this.label17.Text = "去掉属性注释：";
+            // 
+            // chxDelClass
+            // 
+            this.chxDelClass.AutoSize = true;
+            this.chxDelClass.Checked = true;
+            this.chxDelClass.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chxDelClass.Location = new System.Drawing.Point(113, 422);
+            this.chxDelClass.Name = "chxDelClass";
+            this.chxDelClass.Size = new System.Drawing.Size(15, 14);
+            this.chxDelClass.TabIndex = 36;
+            this.chxDelClass.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(12, 423);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(77, 12);
+            this.label18.TabIndex = 35;
+            this.label18.Text = "去掉类注释：";
             // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 428);
+            this.ClientSize = new System.Drawing.Size(790, 457);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FMain";
@@ -596,6 +642,10 @@
         private System.Windows.Forms.CheckBox chxAutoTransfor;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnSelectCopy;
+        private System.Windows.Forms.CheckBox chxDelProp;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.CheckBox chxDelClass;
+        private System.Windows.Forms.Label label18;
     }
 }
 
